@@ -89,11 +89,11 @@ logs/                 gitignored: per-expert training logs
 
 - **GitHub:** this repo (`2028badivi/lotus-mini`).
 - **Hugging Face:** the trained adapters + router + model card can be pushed to
-  a new Hub repo (e.g. `2028badivi/lotus-mini`) with:
+  a new Hub repo (e.g. `IndigoAtlas25/lotus-mini`) with:
 
 ```bash
 uv run scripts/download_router.py    # ensure router artifacts exist
-uv run scripts/upload_hf.py --repo-id 2028badivi/lotus-mini
+uv run scripts/upload_hf.py --repo-id IndigoAtlas25/lotus-mini
 ```
 
 See [`hf_model_card.md`](hf_model_card.md) for the model-card copy.

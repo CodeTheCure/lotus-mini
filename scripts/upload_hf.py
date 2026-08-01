@@ -10,8 +10,8 @@ Prereqs:
   * the router artifacts downloaded (`uv run scripts/download_router.py`)
 
 Usage:
-  uv run scripts/upload_hf.py --repo-id 2028badivi/lotus-mini
-  uv run scripts/upload_hf.py --repo-id 2028badivi/lotus-mini --private
+  uv run scripts/upload_hf.py --repo-id IndigoAtlas25/lotus-mini
+  uv run scripts/upload_hf.py --repo-id IndigoAtlas25/lotus-mini --private
 """
 
 import argparse
@@ -29,7 +29,7 @@ log = logging.getLogger("upload_hf")
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__,
                                      formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("--repo-id", default="2028badivi/lotus-mini",
+    parser.add_argument("--repo-id", default="IndigoAtlas25/lotus-mini",
                         help="target HF repo id (e.g. <user>/lotus-mini)")
     parser.add_argument("--token", default=None, help="HF token (or set HF_TOKEN)")
     parser.add_argument("--private", action="store_true", help="create a private repo")
@@ -58,7 +58,7 @@ def main() -> None:
 
     upload_folder(
         repo_id=args.repo_id, folder_path=str(ROUTER_DIR), path_in_repo="router",
-        token=token,
+        token=token, ignore_patterns=["__pycache__/*", "*.pyc"],
     )
     log.info("Uploaded %s -> %s/router", ROUTER_DIR, args.repo_id)
 
