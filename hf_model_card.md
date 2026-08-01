@@ -75,6 +75,6 @@ uv run moe.py "I've had chest pain for three days and I'm scared."
 
 ## Disclaimer
 
-This is a research/demo model fine-tuned from AI-generated medical Q&A data.
+This is a research/demo model fine-tuned from medical Q&A data.
 It is **not** a substitute for professional medical advice, diagnosis, or
 treatment.
