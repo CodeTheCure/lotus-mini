@@ -1,12 +1,3 @@
-"""Tiny sentiment classifier used as the MoE router.
-
-DistilBERT-base fine-tuned on SST-2 (positive/negative), exported to ONNX so
-it runs with no torch / no GPU. Returns P(POSITIVE) in [0, 1].
-
-The ONNX model + tokenizer are NOT committed to the repo; they are downloaded
-from Hugging Face on first use (see :func:`ensure_downloaded`).
-"""
-
 import logging
 import shutil
 from pathlib import Path
@@ -26,11 +17,6 @@ def softmax(x: np.ndarray) -> np.ndarray:
 
 
 def ensure_downloaded(dest_dir: Path | None = None, force: bool = False) -> Path:
-    """Download the sentiment router artifacts from HF into ``dest_dir``.
-
-    Only fetches files that are missing (unless ``force=True``). Called
-    automatically by :class:`SentimentRouter` when the defaults are used.
-    """
     dest_dir = Path(dest_dir or ROUTER_DIR)
     dest_dir.mkdir(parents=True, exist_ok=True)
     missing = [f for f in ROUTER_FILES if not (dest_dir / f).exists()]
@@ -52,7 +38,6 @@ def ensure_downloaded(dest_dir: Path | None = None, force: bool = False) -> Path
 
 
 class SentimentRouter:
-    """DistilBERT SST-2 sentiment classifier (positive/negative) via ONNX."""
 
     def __init__(self, model_path: Path | None = None,
                  tokenizer_path: Path | None = None):
@@ -69,7 +54,6 @@ class SentimentRouter:
         self.input_names = tuple(s.name for s in self.session.get_inputs())
 
     def score(self, text: str) -> float:
-        """Return P(POSITIVE) in [0, 1]."""
         enc = self.tokenizer.encode(text)
         ids = np.array(enc.ids, dtype=np.int64)[None, :]
         mask = np.array(enc.attention_mask, dtype=np.int64)[None, :]
@@ -80,7 +64,6 @@ class SentimentRouter:
         return float(probs[1])
 
     def label(self, text: str) -> str:
-        """Return the expert label this text should be routed to."""
         return "POS" if self.score(text) >= 0.5 else "NEG"
 
 

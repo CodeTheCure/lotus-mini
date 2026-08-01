@@ -1,12 +1,4 @@
 #!/usr/bin/env python3
-"""Smoke-test the setup: router first (fast, no big model), then optionally
-the full MoE pipeline (loads the ~3.4 GB base model on first run).
-
-Usage:
-  uv run scripts/smoke_test.py                  # router only (seconds)
-  uv run scripts/smoke_test.py --with-model     # full inference test
-  uv run scripts/smoke_test.py --with-model --expert NEG "my head hurts"
-"""
 
 import argparse
 import logging

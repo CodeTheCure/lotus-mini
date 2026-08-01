@@ -1,10 +1,3 @@
-"""Load and hot-swap the sentiment-routed LoRA expert adapters.
-
-All experts share one 4-bit base model; each expert is a LoRA adapter
-(~14 MB). Switching experts at inference = swapping the adapter weights on the
-shared model, which is what makes this MoE parameter-efficient.
-"""
-
 import json
 import logging
 from pathlib import Path
@@ -17,7 +10,6 @@ log = logging.getLogger("lotus.expert")
 
 
 class ExpertLoader:
-    """Attaches LoRA layers to a model once, then swaps adapter weights on demand."""
 
     def __init__(self, model, experts_dir: Path = EXPERTS_DIR,
                  labels: dict | None = None):
@@ -30,7 +22,6 @@ class ExpertLoader:
         return self.experts_dir / self.labels[label]
 
     def load(self, label: str) -> None:
-        """Load (or swap to) the adapter for ``label``. Safe to call repeatedly."""
         path = self.adapter_path(label)
         if not (path / "adapters.safetensors").exists():
             raise FileNotFoundError(

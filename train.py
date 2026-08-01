@@ -1,16 +1,4 @@
 #!/usr/bin/env python3
-"""QLoRA fine-tune the sentiment MoE experts.
-
-Each expert = one LoRA adapter trained on top of the shared 4-bit quantized
-Gemma 3 4B base (QLoRA). Trains adapters for the subsets produced by
-`uv run prepare_data.py`. Progress is streamed live (tqdm + heartbeat).
-
-Usage:
-  uv run train.py                              # train both experts
-  uv run train.py --experts POS                # train one expert
-  uv run train.py --iters 120 --batch-size 4   # tune hyperparameters
-  uv run train.py --verbose                    # debug-level logs
-"""
 
 import argparse
 import json

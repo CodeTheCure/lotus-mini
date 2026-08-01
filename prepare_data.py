@@ -1,16 +1,4 @@
 #!/usr/bin/env python3
-"""Prepare sentiment-stratified expert datasets for the medical MoE.
-
-For each medical QA example we:
-  1. Run the tiny DistilBERT sentiment classifier (ONNX, no torch) on the
-     patient's question to get a POS/NEG label.
-  2. Route the example to the matching sentiment expert subset.
-  3. Emit `{"messages": [...]}` JSONL files consumed by the mlx-lm LoRA trainer.
-
-Usage:
-  uv run prepare_data.py                      # defaults: 12000 rows, cap 1000/expert
-  uv run prepare_data.py --total 6000 --max-per-expert 500
-"""
 
 import argparse
 import json

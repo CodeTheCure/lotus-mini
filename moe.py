@@ -1,25 +1,4 @@
 #!/usr/bin/env python3
-"""Sentiment-routed Mixture-of-Experts inference CLI.
-
-Architecture
-------------
-  user prompt
-     |--> SentimentRouter (DistilBERT SST-2, ONNX)
-     |        P(POS) >= 0.5  -> POS expert (LoRA adapter trained on positive-
-     |                           sentiment patient queries)
-     |        else            -> NEG expert (trained on negative-sentiment)
-     v
-  shared 4-bit Gemma 3 4B + chosen expert's LoRA adapter
-     v
-  response
-
-Usage:
-  uv run moe.py "I've been having chest pain all week, I'm scared."
-  uv run moe.py --interactive
-  uv run moe.py --compare "My baby hasn't stopped crying since yesterday."
-  uv run moe.py --expert NEG "just a dry cough"          # force an expert
-  uv run moe.py --verbose "..."                          # debug-level logs
-"""
 
 import argparse
 import logging

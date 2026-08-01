@@ -1,12 +1,4 @@
 #!/usr/bin/env python3
-"""Download the sentiment-router artifacts (ONNX model + tokenizer) from HF.
-
-The ~256 MB ONNX model is intentionally NOT committed to git; this script
-fetches it (and the tokenizer files) into ``router/``. ``moe.py`` and
-``prepare_data.py`` also do this automatically on first use.
-
-Usage:  uv run scripts/download_router.py [--force]
-"""
 
 import argparse
 import logging

@@ -1,16 +1,3 @@
-"""QLoRA training driver with live, verbose progress.
-
-Wraps the ``mlx-lm`` LoRA trainer as a subprocess and streams its output with:
-  * a tqdm progress bar (loss, tok/s, ETA) per expert
-  * a watchdog heartbeat so a long model-load never looks like a stall
-  * a raw byte-level reader so tqdm "\\r" updates are consumed too (a
-    line-based reader would let "\\r"-only output fill the pipe buffer and
-    deadlock the child).
-
-QLoRA = a 4-bit quantized base model + LoRA adapters. Each expert is one
-adapter trained on its sentiment-stratified subset.
-"""
-
 import logging
 import os
 import re
@@ -33,7 +20,6 @@ log = logging.getLogger("lotus.trainer")
 
 
 def setup_logging(verbose: bool = False, name: str = "lotus") -> logging.Logger:
-    """Configure console logging with timestamps + unbuffered streams."""
     handler = logging.StreamHandler()
     handler.setFormatter(logging.Formatter(
         "%(asctime)s %(levelname)-7s %(message)s", datefmt="%H:%M:%S"
@@ -65,7 +51,6 @@ class TrainConfig:
 def run_lora_training(cfg: TrainConfig, label: str, data_dir: str,
                       base_model: str = BASE_MODEL,
                       experts_dir: Path = EXPERTS_DIR) -> None:
-    """Train one LoRA adapter (``label``) on ``data_dir`` with QLoRA."""
     adapter_path = Path(experts_dir) / label.lower()
     adapter_path.mkdir(parents=True, exist_ok=True)
     n_train = sum(1 for _ in open(Path(data_dir) / "train.jsonl"))
