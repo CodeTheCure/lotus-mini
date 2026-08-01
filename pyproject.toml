@@ -1,0 +1,25 @@
+[project]
+name = "lotus-mini"
+version = "0.2.0"
+description = "Sentiment-routed medical Mixture-of-Experts (QLoRA on a 4-bit Gemma 3 4B)"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "datasets>=5.0.1",
+    "huggingface-hub>=0.20.0",
+    "mlx>=0.32.0",
+    "mlx-lm>=0.31.3",
+    "onnxruntime>=1.28.0",
+    "tokenizers>=0.20.0",
+    "tqdm>=4.70.0",
+]
+
+[project.scripts]
+lotus-mini = "moe:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["lotus"]

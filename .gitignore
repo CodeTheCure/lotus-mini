@@ -1,0 +1,20 @@
+# --- Python ---
+__pycache__/
+*.pyc
+*.pyo
+
+# --- virtualenv / package managers ---
+.venv/
+*.egg-info/
+
+# --- local runtime artifacts ---
+logs/
+train_full.log
+nohup.out
+
+# --- downloaded model artifacts (NOT committed; fetched by setup.sh) ---
+router/
+*.gguf
+
+# --- macOS ---
+.DS_Store
