@@ -1,0 +1,254 @@
+{
+  "description": "Stress-test medical patient queries for Lotus-mini sentiment router and intelligence evaluation",
+  "version": "2.0",
+  "test_categories": {
+    "ambiguous": "Sentiment is genuinely unclear - reasonable people could disagree",
+    "indirect": "Patient doesn't explicitly state feelings, must infer from context",
+    "sarcasm": "Surface sentiment contradicts true feeling",
+    "mixed": "Contains both positive and negative signals",
+    "neutral_clinical": "Factual medical description without emotional language",
+    "culturally_nuanced": "Cultural context affects interpretation"
+  },
+  "prompts": [
+    {
+      "id": 1,
+      "text": "I've had chest pain for three days and I'm really scared something is wrong with my heart.",
+      "expected_route": "NEG",
+      "category": "obvious_negative",
+      "difficulty": "easy",
+      "notes": "Explicit fear language"
+    },
+    {
+      "id": 2,
+      "text": "I feel much better now, thank you doctor! The medication is working great.",
+      "expected_route": "POS",
+      "category": "obvious_positive",
+      "difficulty": "easy",
+      "notes": "Explicit gratitude and improvement"
+    },
+    {
+      "id": 3,
+      "text": "My doctor says everything looks fine but I just can't shake this feeling that something is wrong.",
+      "expected_route": "NEG",
+      "category": "ambiguous",
+      "difficulty": "hard",
+      "notes": "Medical reassurance vs persistent anxiety - router must weigh emotional state over clinical facts"
+    },
+    {
+      "id": 4,
+      "text": "The test results came back negative. I should be happy about that, right?",
+      "expected_route": "NEG",
+      "category": "ambiguous",
+      "difficulty": "hard",
+      "notes": "Seeking reassurance suggests underlying worry despite good news"
+    },
+    {
+      "id": 5,
+      "text": "I'm not worried about the surgery. My friend had the same procedure and was back at work in two weeks.",
+      "expected_route": "POS",
+      "category": "indirect",
+      "difficulty": "medium",
+      "notes": "Uses social comparison to express confidence - no explicit emotion words"
+    },
+    {
+      "id": 6,
+      "text": "Oh great, another medication to add to the list. Just what I needed.",
+      "expected_route": "NEG",
+      "category": "sarcasm",
+      "difficulty": "hard",
+      "notes": "Surface positivity ('great', 'just what I needed') masks frustration"
+    },
+    {
+      "id": 7,
+      "text": "I suppose the headaches aren't as bad as they were last month.",
+      "expected_route": "NEG",
+      "category": "mixed",
+      "difficulty": "hard",
+      "notes": "Backhanded improvement - still has headaches, just less severe"
+    },
+    {
+      "id": 8,
+      "text": "Three years sober today. My liver enzymes are finally normal. I never thought I'd see the day.",
+      "expected_route": "POS",
+      "category": "indirect",
+      "difficulty": "medium",
+      "notes": "Achievement narrative without explicit 'happy' or 'thank'"
+    },
+    {
+      "id": 9,
+      "text": "The radiologist said the scan was unremarkable. I'm having a hard time believing that.",
+      "expected_route": "NEG",
+      "category": "ambiguous",
+      "difficulty": "hard",
+      "notes": "Medical good news vs patient distrust/disbelief"
+    },
+    {
+      "id": 10,
+      "text": "I guess the physical therapy is helping. I can almost climb the stairs now.",
+      "expected_route": "POS",
+      "category": "mixed",
+      "difficulty": "medium",
+      "notes": "Reluctant optimism - progress with reservation"
+    },
+    {
+      "id": 11,
+      "text": "My blood pressure is 120/80. That's normal, isn't it? I've been checking it every hour.",
+      "expected_route": "NEG",
+      "category": "indirect",
+      "difficulty": "hard",
+      "notes": "Normal reading but compulsive checking indicates health anxiety"
+    },
+    {
+      "id": 12,
+      "text": "I'm fine. It's just a headache. Everyone gets headaches. I don't know why they ran all those tests.",
+      "expected_route": "NEG",
+      "category": "sarcasm",
+      "difficulty": "hard",
+      "notes": "Repetitive minimization suggests defensive coping, not actual reassurance"
+    },
+    {
+      "id": 13,
+      "text": "After six months of treatment, I can finally play with my grandkids without getting winded.",
+      "expected_route": "POS",
+      "category": "indirect",
+      "difficulty": "medium",
+      "notes": "Quality-of-life improvement narrative"
+    },
+    {
+      "id": 14,
+      "text": "The specialist was very thorough. He explained everything in detail. I have my follow-up next Tuesday.",
+      "expected_route": "NEG",
+      "category": "neutral_clinical",
+      "difficulty": "hard",
+      "notes": "Factual description of appointment - no emotion, but seeking information suggests concern"
+    },
+    {
+      "id": 15,
+      "text": "I'm not sure if the medication is working or if I'm just used to feeling this way.",
+      "expected_route": "NEG",
+      "category": "ambiguous",
+      "difficulty": "hard",
+      "notes": "Uncertainty about improvement - ambiguous whether adapting or not improving"
+    },
+    {
+      "id": 16,
+      "text": "My A1C dropped from 9.2 to 6.8 in three months. My nutritionist is thrilled.",
+      "expected_route": "POS",
+      "category": "neutral_clinical",
+      "difficulty": "medium",
+      "notes": "Clinical data showing improvement - positive but stated factually"
+    },
+    {
+      "id": 17,
+      "text": "I know you said the biopsy results would take a week but it's only been two days and I'm already a mess.",
+      "expected_route": "NEG",
+      "category": "indirect",
+      "difficulty": "medium",
+      "notes": "Anxiety about waiting, not the result itself"
+    },
+    {
+      "id": 18,
+      "text": "The doctor spent forty minutes with me today. That never happens. I feel heard for the first time.",
+      "expected_route": "POS",
+      "category": "indirect",
+      "difficulty": "medium",
+      "notes": "Satisfaction expressed through experience comparison"
+    },
+    {
+      "id": 19,
+      "text": "I asked my doctor if I should be worried and she said no. So I guess I shouldn't be. Right?",
+      "expected_route": "NEG",
+      "category": "sarcasm",
+      "difficulty": "hard",
+      "notes": "Repetitive seeking of reassurance indicates persistent worry"
+    },
+    {
+      "id": 20,
+      "text": "Everything came back normal. I don't know why I even bothered coming in. Waste of a morning.",
+      "expected_route": "NEG",
+      "category": "sarcasm",
+      "difficulty": "hard",
+      "notes": "Frustration despite normal results - possible defensive dismissal"
+    },
+    {
+      "id": 21,
+      "text": "I've been reading about my condition online and I think I might have something much worse than what the doctor said.",
+      "expected_route": "NEG",
+      "category": "ambiguous",
+      "difficulty": "hard",
+      "notes": "Doctor reassurance vs internet-driven health anxiety"
+    },
+    {
+      "id": 22,
+      "text": "Well, at least it's not cancer. Could be worse, I suppose.",
+      "expected_route": "NEG",
+      "category": "mixed",
+      "difficulty": "hard",
+      "notes": "Forced optimism - 'could be worse' implies current situation is still bad"
+    },
+    {
+      "id": 23,
+      "text": "My wife says I look healthier. I'll take her word for it.",
+      "expected_route": "POS",
+      "category": "indirect",
+      "difficulty": "medium",
+      "notes": "Accepting positive feedback from others"
+    },
+    {
+      "id": 24,
+      "text": "I was told the recovery would take two weeks. It's been two months. I'm still using a cane.",
+      "expected_route": "NEG",
+      "category": "indirect",
+      "difficulty": "medium",
+      "notes": "Expectation violation - prolonged recovery"
+    },
+    {
+      "id": 25,
+      "text": "I'm grateful for the care I received. The nurses were wonderful. I just wish the outcome had been different.",
+      "expected_route": "NEG",
+      "category": "mixed",
+      "difficulty": "hard",
+      "notes": "Gratitude for care coexists with disappointment in outcome"
+    },
+    {
+      "id": 26,
+      "text": "The new dosage seems to be helping. I haven't had a panic attack in three days.",
+      "expected_route": "POS",
+      "category": "indirect",
+      "difficulty": "medium",
+      "notes": "Absence of negative symptoms indicates improvement"
+    },
+    {
+      "id": 27,
+      "text": "I showed up for my appointment and they told me it was cancelled. Nobody called me.",
+      "expected_route": "NEG",
+      "category": "neutral_clinical",
+      "difficulty": "medium",
+      "notes": "Administrative frustration without explicit emotion words"
+    },
+    {
+      "id": 28,
+      "text": "My mom had the same surgery and she was fine. I'm sure I will be too. Probably.",
+      "expected_route": "NEG",
+      "category": "mixed",
+      "difficulty": "hard",
+      "notes": "Starts confident, ends with doubt - 'probably' undercuts reassurance"
+    },
+    {
+      "id": 29,
+      "text": "I don't want to be one of those people who WebMDs themselves into a panic. But here I am.",
+      "expected_route": "NEG",
+      "category": "sarcasm",
+      "difficulty": "hard",
+      "notes": "Self-aware health anxiety with ironic self-deprecation"
+    },
+    {
+      "id": 30,
+      "text": "The doctor said I'm her most improved patient this year. I don't know how to feel about that.",
+      "expected_route": "NEG",
+      "category": "ambiguous",
+      "difficulty": "hard",
+      "notes": "Positive feedback with ambivalent reception"
+    }
+  ]
+}

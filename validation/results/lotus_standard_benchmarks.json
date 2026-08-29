@@ -1,0 +1,9 @@
+{
+  "model": "mlx-community/gemma-3-4b-it-4bit",
+  "benchmarks": {
+    "IFEval": 100.0,
+    "BBH": 38.3,
+    "MMLU-PRO": 30.0
+  },
+  "avg": 56.1
+}

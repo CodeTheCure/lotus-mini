@@ -1,0 +1,182 @@
+{
+  "llm_comparison": {
+    "source": "Salt Technologies AI (2026). LLM Model Comparison for Enterprise Use Cases. CC BY 4.0",
+    "url": "https://www.salttechno.ai/datasets/llm-model-comparison-2026/",
+    "models": {
+      "GPT-4.1": {
+        "provider": "OpenAI",
+        "mmlu": 86.5,
+        "humaneval": 90.2,
+        "math": 80.4,
+        "mt_bench": 9.2,
+        "input_cost_per_1m": 2.0,
+        "output_cost_per_1m": 8.0
+      },
+      "GPT-4.1 mini": {
+        "provider": "OpenAI",
+        "mmlu": 83.5,
+        "humaneval": 87.5,
+        "math": 72.0,
+        "mt_bench": 8.8,
+        "input_cost_per_1m": 0.4,
+        "output_cost_per_1m": 1.6
+      },
+      "o3": {
+        "provider": "OpenAI",
+        "mmlu": 87.5,
+        "humaneval": 95.2,
+        "math": 96.7,
+        "mt_bench": null,
+        "input_cost_per_1m": 2.0,
+        "output_cost_per_1m": 8.0
+      },
+      "o4-mini": {
+        "provider": "OpenAI",
+        "mmlu": 83.2,
+        "humaneval": 93.4,
+        "math": 96.7,
+        "mt_bench": null,
+        "input_cost_per_1m": 1.1,
+        "output_cost_per_1m": 4.4
+      },
+      "Claude Sonnet 4.5": {
+        "provider": "Anthropic",
+        "mmlu": 89.0,
+        "humaneval": 93.0,
+        "math": 78.5,
+        "mt_bench": 9.2,
+        "input_cost_per_1m": 3.0,
+        "output_cost_per_1m": 15.0
+      },
+      "Claude Haiku 4.5": {
+        "provider": "Anthropic",
+        "mmlu": 80.0,
+        "humaneval": 89.5,
+        "math": 72.0,
+        "mt_bench": 8.6,
+        "input_cost_per_1m": 1.0,
+        "output_cost_per_1m": 5.0
+      },
+      "Claude Opus 4.5": {
+        "provider": "Anthropic",
+        "mmlu": 89.5,
+        "humaneval": 91.0,
+        "math": 76.0,
+        "mt_bench": 9.3,
+        "input_cost_per_1m": 5.0,
+        "output_cost_per_1m": 25.0
+      },
+      "Gemini 2.5 Pro": {
+        "provider": "Google",
+        "mmlu": 87.2,
+        "humaneval": 84.0,
+        "math": 78.0,
+        "mt_bench": 9.0,
+        "input_cost_per_1m": 1.25,
+        "output_cost_per_1m": 10.0
+      },
+      "Gemini 2.5 Flash": {
+        "provider": "Google",
+        "mmlu": 83.6,
+        "humaneval": 82.0,
+        "math": 73.1,
+        "mt_bench": 8.6,
+        "input_cost_per_1m": 0.3,
+        "output_cost_per_1m": 2.5
+      },
+      "Llama 4 Scout": {
+        "provider": "Meta",
+        "mmlu": 79.6,
+        "humaneval": 82.0,
+        "math": 70.5,
+        "mt_bench": 8.3,
+        "input_cost_per_1m": 0.11,
+        "output_cost_per_1m": 0.34
+      },
+      "Llama 4 Maverick": {
+        "provider": "Meta",
+        "mmlu": 85.5,
+        "humaneval": 88.0,
+        "math": 78.5,
+        "mt_bench": 8.7,
+        "input_cost_per_1m": 0.2,
+        "output_cost_per_1m": 0.6
+      },
+      "DeepSeek V3": {
+        "provider": "DeepSeek",
+        "mmlu": 88.5,
+        "humaneval": 82.6,
+        "math": 90.2,
+        "mt_bench": 8.8,
+        "input_cost_per_1m": 0.25,
+        "output_cost_per_1m": 1.1
+      },
+      "DeepSeek R1": {
+        "provider": "DeepSeek",
+        "mmlu": 90.8,
+        "humaneval": 85.3,
+        "math": 97.3,
+        "mt_bench": null,
+        "input_cost_per_1m": 0.55,
+        "output_cost_per_1m": 2.19
+      },
+      "Mistral Large 3": {
+        "provider": "Mistral AI",
+        "mmlu": 85.5,
+        "humaneval": 90.2,
+        "math": 83.5,
+        "mt_bench": 8.5,
+        "input_cost_per_1m": 0.5,
+        "output_cost_per_1m": 1.5
+      },
+      "Mistral Small 3.2": {
+        "provider": "Mistral AI",
+        "mmlu": 72.2,
+        "humaneval": 75.0,
+        "math": 60.0,
+        "mt_bench": 8.1,
+        "input_cost_per_1m": 0.06,
+        "output_cost_per_1m": 0.18
+      },
+      "Command A": {
+        "provider": "Cohere",
+        "mmlu": 71.2,
+        "humaneval": 68.0,
+        "math": 53.0,
+        "mt_bench": 8.2,
+        "input_cost_per_1m": 2.5,
+        "output_cost_per_1m": 10.0
+      }
+    }
+  },
+  "sentiment_benchmark": {
+    "source": "AIMultiple (2026). Sentiment Analysis Benchmark Testing. Jun 15, 2026.",
+    "url": "https://aimultiple.com/sentiment-analysis-benchmark",
+    "overall_accuracy": {
+      "GPT 5.5": 80,
+      "Claude Sonnet 4.6": 79,
+      "Qwen 3.6 Plus": 78,
+      "ChatGPT 5.4 mini": 78,
+      "Kimi k2.6": 77,
+      "Gemini 3.1-pro": 76
+    }
+  },
+  "distilbert_sst2": {
+    "source": "HuggingFace Model Card: distilbert-base-uncased-finetuned-sst-2-english",
+    "accuracy": 91.3
+  },
+  "medical_benchmarks": {
+    "source": "AwesomeAgents Medical LLM Leaderboard (April 2026)",
+    "medqa_usMLE": {
+      "o3": 93.0,
+      "GPT-5": 93.0,
+      "Claude Opus 4.5": 90.0,
+      "DeepSeek R1": 88.5,
+      "MedGemma 27B": 82.0
+    },
+    "healthbench": {
+      "GPT-5": 73,
+      "Claude Opus 4.5": 70
+    }
+  }
+}

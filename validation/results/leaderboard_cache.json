@@ -1,0 +1,158 @@
+[
+  {
+    "model": "GPT-4o",
+    "category": "frontier",
+    "benchmarks": {
+      "IFEval": null,
+      "BBH": null,
+      "MATH-L5": null,
+      "GPQA": null,
+      "MUSR": null,
+      "MMLU-PRO": null
+    },
+    "avg_score": null
+  },
+  {
+    "model": "Claude 3.5 Sonnet",
+    "category": "frontier",
+    "benchmarks": {
+      "IFEval": null,
+      "BBH": null,
+      "MATH-L5": null,
+      "GPQA": null,
+      "MUSR": null,
+      "MMLU-PRO": null
+    },
+    "avg_score": null
+  },
+  {
+    "model": "Gemini 1.5 Pro",
+    "category": "frontier",
+    "benchmarks": {
+      "IFEval": null,
+      "BBH": null,
+      "MATH-L5": null,
+      "GPQA": null,
+      "MUSR": null,
+      "MMLU-PRO": null
+    },
+    "avg_score": null
+  },
+  {
+    "model": "Llama 3.1 70B",
+    "category": "large-open",
+    "benchmarks": {
+      "IFEval": null,
+      "BBH": null,
+      "MATH-L5": null,
+      "GPQA": null,
+      "MUSR": null,
+      "MMLU-PRO": null
+    },
+    "avg_score": null
+  },
+  {
+    "model": "Qwen2.5 72B",
+    "category": "large-open",
+    "benchmarks": {
+      "IFEval": null,
+      "BBH": null,
+      "MATH-L5": null,
+      "GPQA": null,
+      "MUSR": null,
+      "MMLU-PRO": null
+    },
+    "avg_score": null
+  },
+  {
+    "model": "DeepSeek V2.5",
+    "category": "large-open",
+    "benchmarks": {
+      "IFEval": null,
+      "BBH": null,
+      "MATH-L5": null,
+      "GPQA": null,
+      "MUSR": null,
+      "MMLU-PRO": null
+    },
+    "avg_score": null
+  },
+  {
+    "model": "Llama 3.1 8B",
+    "category": "medium-open",
+    "benchmarks": {
+      "IFEval": null,
+      "BBH": null,
+      "MATH-L5": null,
+      "GPQA": null,
+      "MUSR": null,
+      "MMLU-PRO": null
+    },
+    "avg_score": null
+  },
+  {
+    "model": "Qwen2.5 7B",
+    "category": "medium-open",
+    "benchmarks": {
+      "IFEval": null,
+      "BBH": null,
+      "MATH-L5": null,
+      "GPQA": null,
+      "MUSR": null,
+      "MMLU-PRO": null
+    },
+    "avg_score": null
+  },
+  {
+    "model": "Mistral 7B",
+    "category": "medium-open",
+    "benchmarks": {
+      "IFEval": null,
+      "BBH": null,
+      "MATH-L5": null,
+      "GPQA": null,
+      "MUSR": null,
+      "MMLU-PRO": null
+    },
+    "avg_score": null
+  },
+  {
+    "model": "Gemma 2 4B",
+    "category": "small-open",
+    "benchmarks": {
+      "IFEval": null,
+      "BBH": null,
+      "MATH-L5": null,
+      "GPQA": null,
+      "MUSR": null,
+      "MMLU-PRO": null
+    },
+    "avg_score": null
+  },
+  {
+    "model": "Phi-3 Mini",
+    "category": "small-open",
+    "benchmarks": {
+      "IFEval": null,
+      "BBH": null,
+      "MATH-L5": null,
+      "GPQA": null,
+      "MUSR": null,
+      "MMLU-PRO": null
+    },
+    "avg_score": null
+  },
+  {
+    "model": "Llama 3.2 3B",
+    "category": "small-open",
+    "benchmarks": {
+      "IFEval": null,
+      "BBH": null,
+      "MATH-L5": null,
+      "GPQA": null,
+      "MUSR": null,
+      "MMLU-PRO": null
+    },
+    "avg_score": null
+  }
+]
